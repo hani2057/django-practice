@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<h1>detail</h1>
+<h2>{{ article.pk}}th article</h2>
+<h2>title: {{ article.title}}</h2>
+<form action="{% url 'articles:delete' article.pk %}" method="POST">
+  {% csrf_token %}
+  <button>delete</button>
+</form>
+<a href="{% url 'articles:edit' article.pk %}">edit</a>
+{% comment %}
+<textarea name="content" id="" cols="30" rows="10">
+{{article.content}}</textarea
+>
+{% endcomment %}
+<a href="{% url 'articles:index' %}">to index</a>
+
+{% endblock content %}
